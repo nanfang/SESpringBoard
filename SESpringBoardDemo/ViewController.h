@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-@property(nonatomic, retain) UIViewController *vc1;
-@property(nonatomic, retain) UIViewController *vc2;
+@property(nonatomic, strong) UIViewController *vc1;
+@property(nonatomic, strong) UIViewController *vc2;
 
 @end

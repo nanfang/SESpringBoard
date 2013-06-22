@@ -17,7 +17,7 @@
 
 -(void) setupCloseButtonWithImage:(UIImage *) closeImage {
     // add a button to the navigation bar to switch back to the springboard interface (home)
-    UIButton *btn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setBackgroundImage: closeImage forState:UIControlStateNormal];
     [btn setFrame:CGRectMake(0, 0, 41, 33)];
     [btn addTarget:self action:@selector(quitView:)forControlEvents:UIControlEventTouchUpInside];

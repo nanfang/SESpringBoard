@@ -335,6 +335,7 @@
 		7514C0E614654F0700FEF1E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SESpringBoardDemo/SESpringBoardDemo-Prefix.pch";
 				INFOPLIST_FILE = "SESpringBoardDemo/SESpringBoardDemo-Info.plist";
@@ -346,6 +347,7 @@
 		7514C0E714654F0700FEF1E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SESpringBoardDemo/SESpringBoardDemo-Prefix.pch";
 				INFOPLIST_FILE = "SESpringBoardDemo/SESpringBoardDemo-Info.plist";

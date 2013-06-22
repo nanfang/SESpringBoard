@@ -19,9 +19,9 @@
     
     // place any dynamic stuff you want to initialize in the child view here
     
-    UIBarButtonItem *buttonItemDoSomething = [[[ UIBarButtonItem alloc ] initWithTitle: @"DoSomething" style: UIBarButtonItemStyleBordered target:self action: nil ] autorelease];
+    UIBarButtonItem *buttonItemDoSomething = [[ UIBarButtonItem alloc ] initWithTitle: @"DoSomething" style: UIBarButtonItemStyleBordered target:self action: nil ];
     
-    NSArray *toolBarItems = [[[NSArray alloc] initWithObjects:buttonItemDoSomething, nil] autorelease];
+    NSArray *toolBarItems = [[NSArray alloc] initWithObjects:buttonItemDoSomething, nil];
     
     [self.navigationController setToolbarHidden:NO];
     

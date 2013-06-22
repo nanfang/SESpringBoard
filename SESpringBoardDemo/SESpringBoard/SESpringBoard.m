@@ -96,7 +96,6 @@
             [self.itemCounts addObject:[NSNumber numberWithInteger:lastPageItemCount]];
         
         [itemsContainer setContentSize:CGSizeMake(numberOfPages*itemsContainer.frame.size.width, itemsContainer.frame.size.height)];
-        [itemsContainer release];
         
         // add a page control representing the page the scrollview controls
         pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height-navigationBar.frame.size.height-5, self.frame.size.width, 20)];
@@ -113,18 +112,10 @@
 
 + (id) initWithTitle:(NSString *)boardTitle items:(NSMutableArray *)menuItems launcherImage:(UIImage *)image
 {
-    SESpringBoard *tmpInstance = [[[SESpringBoard alloc] initWithTitle:boardTitle items:menuItems image:image] autorelease];
+    SESpringBoard *tmpInstance = [[SESpringBoard alloc] initWithTitle:boardTitle items:menuItems image:image];
 	return tmpInstance;
 };
 
-- (void)dealloc {
-    [items release];
-    [launcher release];
-    [navigationBar release];
-    [pageControl release];
-    [itemCounts release];
-    [super dealloc];
-}
 
 // transition animation function required for the springboard look & feel
 - (CGAffineTransform)offscreenQuadrantTransformForView:(UIView *)theView {
@@ -240,7 +231,6 @@
     }];
     
     // release the dynamically created navigation bar
-    [nav release];
 }
 
 #pragma mark - UIScrollView Delegate Methods

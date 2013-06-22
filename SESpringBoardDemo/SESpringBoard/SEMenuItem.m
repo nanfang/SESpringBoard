@@ -93,7 +93,7 @@
 }
 
 + (id) initWithTitle:(NSString *)title frame:(CGRect)frame imageName:(NSString *)imageName viewController:(UIViewController *)viewController removable:(BOOL)removable  {
-	SEMenuItem *tmpInstance = [[[SEMenuItem alloc] initWithTitle:title frame:frame imageName:imageName viewController:viewController canBeRemoved:removable] autorelease];
+	SEMenuItem *tmpInstance = [[SEMenuItem alloc] initWithTitle:title frame:frame imageName:imageName viewController:viewController canBeRemoved:removable];
 	return tmpInstance;
 }
 
@@ -142,7 +142,6 @@
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(pressedLong:)];
     [button addGestureRecognizer:longPress];
-    [longPress release];
     [self addSubview:button];
     
     if (self.isRemovable) {

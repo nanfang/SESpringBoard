@@ -17,10 +17,10 @@
     UIButton *doneEditingButton;
 }
 
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) UIImage *launcher;
-@property (nonatomic, retain) NSMutableArray *items;
-@property (nonatomic, retain) NSMutableArray *itemCounts;    // holds how many items there are in each page
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIImage *launcher;
+@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableArray *itemCounts;    // holds how many items there are in each page
 @property BOOL isInEditingMode;
 
 + (id) initWithTitle:(NSString *)boardTitle items:(NSMutableArray *)menuItems launcherImage:(UIImage *)image;
