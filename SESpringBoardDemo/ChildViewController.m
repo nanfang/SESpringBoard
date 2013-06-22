@@ -21,7 +21,7 @@
     
     UIBarButtonItem *buttonItemDoSomething = [[ UIBarButtonItem alloc ] initWithTitle: @"DoSomething" style: UIBarButtonItemStyleBordered target:self action: nil ];
     
-    NSArray *toolBarItems = [[NSArray alloc] initWithObjects:buttonItemDoSomething, nil];
+    NSArray *toolBarItems = @[buttonItemDoSomething];
     
     [self.navigationController setToolbarHidden:NO];
     

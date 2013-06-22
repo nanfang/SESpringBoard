@@ -39,7 +39,7 @@
         
         // add title for the navigation bar
         UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:boardTitle];
-        navigationBar.items = [NSArray arrayWithObject:navigationItem];
+        navigationBar.items = @[navigationItem];
         
         // add a button to the right side that will become visible when the items are in editing mode
         // clicking this button ends editing mode for all items on the springboard
@@ -91,9 +91,9 @@
         int numberOfFullPages = totalNumberOfItems % itemsPerPage;
         int lastPageItemCount = totalNumberOfItems - numberOfFullPages%itemsPerPage;
         for (int i=0; i<numberOfFullPages; i++)
-            [self.itemCounts addObject:[NSNumber numberWithInteger:itemsPerPage]];
+            [self.itemCounts addObject:@(itemsPerPage)];
         if (lastPageItemCount != 0)
-            [self.itemCounts addObject:[NSNumber numberWithInteger:lastPageItemCount]];
+            [self.itemCounts addObject:@(lastPageItemCount)];
         
         [itemsContainer setContentSize:CGSizeMake(numberOfPages*itemsContainer.frame.size.width, itemsContainer.frame.size.height)];
         
@@ -173,9 +173,9 @@
 - (void)removeFromSpringboard:(int)index {
     
     // Remove the selected menu item from the springboard, it will have a animation while disappearing
-    SEMenuItem *menuItem = [items objectAtIndex:index];
+    SEMenuItem *menuItem = items[index];
     
-    int numberOfItemsInCurrentPage = [[self.itemCounts objectAtIndex:pageControl.currentPage] intValue];
+    int numberOfItemsInCurrentPage = [(self.itemCounts)[pageControl.currentPage] intValue];
     
     // First find the index of the current item with respect of the current page
     // so that only the items coming after the current item will be repositioned.
@@ -190,7 +190,7 @@
     // and move each of the ones on the current page, one step back.
     // The first item of each row becomes the last item of the previous row.
     for (int i = index+1; i<[items count]; i++) {
-        SEMenuItem *item = [items objectAtIndex:i];
+        SEMenuItem *item = items[i];
         [UIView animateWithDuration:0.2 animations:^{
             
             // Only reposition the items in the current page, coming after the current item
@@ -213,7 +213,7 @@
     [items removeObjectAtIndex:index];
     // also decrease the record of the count of items on the current page and save it in the array holding the data
     numberOfItemsInCurrentPage--;
-    [self.itemCounts replaceObjectAtIndex:pageControl.currentPage withObject:[NSNumber numberWithInteger:numberOfItemsInCurrentPage]];
+    (self.itemCounts)[pageControl.currentPage] = @(numberOfItemsInCurrentPage);
 }
 
 - (void)closeViewEventHandler: (NSNotification *) notification {
